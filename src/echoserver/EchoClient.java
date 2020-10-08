@@ -16,7 +16,12 @@ public static void main(String[] args) throws IOException {
 		server = args[0];
 	}
 
-	
+	while(true) {
+		Socket socket = new Socket(server, portNumber);
+
+		InputStream input = socket.getInputStream();
+		
+	}	
 	
 	
 	catch (ConnectException ce) {
