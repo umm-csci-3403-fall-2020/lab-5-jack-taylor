@@ -25,7 +25,10 @@ public static void main(String[] args) throws IOException {
 		int incByte;
 		
 		while ((line == reader.read()) != null) {
-			System.out.println(incByte);
+			reader.write(incByte);
+			reader.flush();
+			System.out.write(input.read());
+			System.out.flush();
 		}
 		
 		socket.close();
