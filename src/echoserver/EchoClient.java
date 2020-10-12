@@ -22,10 +22,10 @@ public static void main(String[] args) throws IOException {
 		InputStream input = socket.getInputStream();
 		InputStreamReader reader = new InputStreamReader(input);
 
-		String line;
+		int incByte;
 		
 		while ((line == reader.read()) != null) {
-			System.out.println(line);
+			System.out.println(incByte);
 		}
 		
 		socket.close();
