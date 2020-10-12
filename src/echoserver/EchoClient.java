@@ -24,7 +24,7 @@ public static void main(String[] args) throws IOException {
 
 		int incByte;
 		
-		while ((line == reader.read()) != null) {
+		while ((incByte == reader.read()) != null) {
 			reader.write(incByte);
 			reader.flush();
 			System.out.write(input.read());
