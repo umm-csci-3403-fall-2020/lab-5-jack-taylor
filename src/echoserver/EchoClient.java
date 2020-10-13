@@ -20,7 +20,7 @@ public static void main(String[] args) throws IOException {
 		Socket socket = new Socket(server, portNumber);
 
 		InputStream input = socket.getInputStream();
-		InputStreamReader reader = new InputStreamReader(input);
+		OutputStream reader = socket.getOutputStream();
 
 		int incByte;
 		
