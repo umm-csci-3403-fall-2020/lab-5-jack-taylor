@@ -1,32 +1,31 @@
 package echoserver;
 import java.net.*;
 import java.io.*;
-//
+
 public class EchoServer {
     public static final int portNumber = 6013;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 	try {
 	    // Start listening on the specified port
 	    ServerSocket sock = new ServerSocket(portNumber);
 
-	    // Run forever, which is common for server style services
-	    while (true) {
-		// Wait until someone connects, thereby requesting a date
+       while (true) {
 		Socket client = sock.accept();
-		System.out.println("Got a request!");
+		
+		InputStream input = client.getInputStream();
+		OutputStream output = client.getOutputStream();
 
-		// Construct a writer so we can write to the socket, thereby
-		// sending something back to the client.
-		PrintWriter writer = new PrintWriter(client.getOutputStream(), true);
+		int inputbyte;
+		while((inputbyte = input.read()) != -1){
+		    output.write(inputbyte);
+       }
+		output.flush();
 
-		// Send the current date back tothe client.
-		writer.println(new java.util.Date().toString());
-
-		// Close the client socket since we're done.
 		client.close();
-	    }
-	    // *Very* minimal error handling.
+		sock.close();
+       }
+       
 	} catch (IOException ioe) {
 	    System.out.println("We caught an unexpected exception");
 	    System.err.println(ioe);
