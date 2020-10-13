@@ -24,7 +24,7 @@ public static void main(String[] args) throws IOException {
 
 		int incByte;
 		
-		while ((incByte == reader.read()) != null) {
+		while ((incByte = System.in.read()) != -1) {
 			reader.write(incByte);
 			reader.flush();
 			System.out.write(input.read());
@@ -43,4 +43,5 @@ public static void main(String[] args) throws IOException {
 		System.out.println("We caught an unexpected exception.");
 		System.err.println(ioe);
 	}
+   }
 }
